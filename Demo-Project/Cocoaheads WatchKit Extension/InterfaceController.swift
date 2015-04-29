@@ -25,7 +25,7 @@ class InterfaceController: WKInterfaceController {
     func loadTable () {
         table.setNumberOfRows(rows.count, withRowType: "myRow")
         for (index, value ) in enumerate(rows) {
-            let atualRowForThisIndex = table.rowControllerAtIndex(index) as MyWatchCell
+            let atualRowForThisIndex = table.rowControllerAtIndex(index) as! MyWatchCell
             atualRowForThisIndex.labelOnCell.setText(value)
         }
     }
@@ -63,7 +63,7 @@ class InterfaceController: WKInterfaceController {
         
         var array2 = [rows[3],"2","3"]
         
-        self.presentControllerWithNames(array, contexts: array2)
+        self.presentControllerWithNames(array as [AnyObject], contexts: array2)
 
     }
 }

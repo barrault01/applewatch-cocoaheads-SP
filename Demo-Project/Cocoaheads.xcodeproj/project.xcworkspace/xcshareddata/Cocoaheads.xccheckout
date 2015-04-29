@@ -10,14 +10,14 @@
 	<string>Cocoaheads</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9650B1F6AF66DEED6C80AEF46E2B9B051A0B6397</key>
+		<key>5C58C8FBC1E3AFCF174662715D1BE951AD50E3AF</key>
 		<string>github.com:barrault01/applewatch-cocoaheads-SP.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Demo-Project/Cocoaheads.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9650B1F6AF66DEED6C80AEF46E2B9B051A0B6397</key>
+		<key>5C58C8FBC1E3AFCF174662715D1BE951AD50E3AF</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9650B1F6AF66DEED6C80AEF46E2B9B051A0B6397</string>
+	<string>5C58C8FBC1E3AFCF174662715D1BE951AD50E3AF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9650B1F6AF66DEED6C80AEF46E2B9B051A0B6397</string>
+			<string>5C58C8FBC1E3AFCF174662715D1BE951AD50E3AF</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Cocoaheads</string>
 		</dict>

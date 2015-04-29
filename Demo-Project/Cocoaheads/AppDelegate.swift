@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let navigationController = self.window!.rootViewController as UINavigationController
-        let controller = navigationController.topViewController as MasterViewController
+        let navigationController = self.window!.rootViewController as! UINavigationController
+        let controller = navigationController.topViewController as! MasterViewController
         controller.managedObjectContext = self.managedObjectContext
         return true
     }
@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "fr.asapps.Cocoaheads" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as NSURL
+        return urls[urls.count-1] as! NSURL
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -111,26 +111,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func application(application: UIApplication!, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]!, reply: (([NSObject : AnyObject]!) -> Void)!) {
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
         
-        if let method  = userInfo["method"] as? String {
-            var number : Int?
-            switch method {
-            case "checkNumber" :  number = numberOfEvents()
-            case "glance" :  number = numberOfEvents()
-            case "addEvent":  number = addEvent()
-            case "deleteEvents":  deleteAll()
-            default :  number = addEvent()
+        if let userInfo = userInfo {
+            if let method  = userInfo["method"] as? String {
+                var number : Int?
+                switch method {
+                case "checkNumber" :  number = numberOfEvents()
+                case "glance" :  number = numberOfEvents()
+                case "addEvent":  number = addEvent()
+                case "deleteEvents":  deleteAll()
+                default :  number = addEvent()
+                }
+                let dico = ["eventsNumber":NSNumber(integer: number!)]
+                reply(dico)
             }
-            let dico = ["eventsNumber":NSNumber(integer: number!)]
-            reply(dico)
         }
     }
 
     
     func deleteAll () {
         let appDelegate =
-        UIApplication.sharedApplication().delegate as AppDelegate
+        UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext!
         
@@ -140,22 +142,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //3
         var error: NSError?
         
-        let fetchedResults =
-        managedContext.executeFetchRequest(fetchRequest,
-            error: &error) as [NSManagedObject]?
-        if let results = fetchedResults {
-            for obj in results {
-                managedContext.deleteObject(obj)
-            }
-            managedContext.save(nil)
-
+        if let fetchedResults =
+            managedContext.executeFetchRequest(fetchRequest,
+                error: &error) as? [NSManagedObject] {
+                    for obj in fetchedResults {
+                        managedContext.deleteObject(obj)
+                   }
+                    managedContext.save(nil)
+                    
         }
     }
     
     func numberOfEvents() -> Int {
      
         let appDelegate =
-        UIApplication.sharedApplication().delegate as AppDelegate
+        UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext!
         
@@ -165,19 +166,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //3
         var error: NSError?
         
-        let fetchedResults =
-        managedContext.executeFetchRequest(fetchRequest,
-            error: &error) as [NSManagedObject]?
-        
-        if let count = fetchedResults?.count {
-            return count
+        if let fetchedResults =
+            managedContext.executeFetchRequest(fetchRequest,
+                error: &error) as? [NSManagedObject] {
+                    return fetchedResults.count
+                    
         }
+        
         
         return 0
     }
     
     func addEvent () -> Int{
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName("Event", inManagedObjectContext: managedObjectContext!) as NSManagedObject
+        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName("Event", inManagedObjectContext: managedObjectContext!) as! NSManagedObject
         
         // If appropriate, configure the new managed object.
         // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.

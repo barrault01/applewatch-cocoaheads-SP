@@ -38,7 +38,7 @@ class OpenAppInterfaceController: WKInterfaceController {
         WKInterfaceController.openParentApplication(dico,
             reply: {
                 (dicoReplied :[NSObject : AnyObject]!, error : NSError!) -> Void in
-                if  let number = dicoReplied["eventsNumber"] as Int? {
+                if  let number = dicoReplied["eventsNumber"] as? Int {
                     self.numberOfElements = number
                     self.numberLabel.setText("\(self.numberOfElements)")
                 }
@@ -52,7 +52,7 @@ class OpenAppInterfaceController: WKInterfaceController {
         WKInterfaceController.openParentApplication(dico,
             reply: {
                 (dicoReplied :[NSObject : AnyObject]!, error : NSError!) -> Void in
-                if  let number = dicoReplied["eventsNumber"] as Int? {
+                if  let number = dicoReplied["eventsNumber"] as! Int? {
                     self.numberOfElements = number
                     self.numberLabel.setText("\(self.numberOfElements)")
                 }
