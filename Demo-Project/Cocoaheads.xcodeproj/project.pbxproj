@@ -11,6 +11,7 @@
 		8C059AF91AC0BE0500DFCDED /* OpenAppInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C059AF81AC0BE0500DFCDED /* OpenAppInterfaceController.swift */; };
 		8C059AFB1AC0C8D200DFCDED /* MenuInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C059AFA1AC0C8D200DFCDED /* MenuInterfaceController.swift */; };
 		8C059AFD1AC0CAC000DFCDED /* FirstModalInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C059AFC1AC0CAC000DFCDED /* FirstModalInterfaceController.swift */; };
+		8C323F0A1AF7E18600F554CE /* PushNotificationPayload-alt.apns in Resources */ = {isa = PBXBuildFile; fileRef = 8C323F091AF7E18600F554CE /* PushNotificationPayload-alt.apns */; };
 		8C33EE871ABF26AA00F29F01 /* AnimationInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C33EE851ABF26A100F29F01 /* AnimationInterfaceController.swift */; };
 		8C4C9BF31ABCD692003F6BE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4C9BF21ABCD692003F6BE7 /* AppDelegate.swift */; };
 		8C4C9BF61ABCD692003F6BE7 /* Cocoaheads.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C4C9BF41ABCD692003F6BE7 /* Cocoaheads.xcdatamodeld */; };
@@ -73,6 +74,7 @@
 		8C059AF81AC0BE0500DFCDED /* OpenAppInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenAppInterfaceController.swift; sourceTree = "<group>"; };
 		8C059AFA1AC0C8D200DFCDED /* MenuInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuInterfaceController.swift; sourceTree = "<group>"; };
 		8C059AFC1AC0CAC000DFCDED /* FirstModalInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstModalInterfaceController.swift; sourceTree = "<group>"; };
+		8C323F091AF7E18600F554CE /* PushNotificationPayload-alt.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "PushNotificationPayload-alt.apns"; sourceTree = "<group>"; };
 		8C33EE851ABF26A100F29F01 /* AnimationInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimationInterfaceController.swift; path = ../Cocoaheads/AnimationInterfaceController.swift; sourceTree = "<group>"; };
 		8C4C9BED1ABCD692003F6BE7 /* Cocoaheads.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocoaheads.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4C9BF11ABCD692003F6BE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				8C4C9C1E1ABCD6AA003F6BE7 /* Info.plist */,
+				8C323F091AF7E18600F554CE /* PushNotificationPayload-alt.apns */,
 				8C4C9C1F1ABCD6AA003F6BE7 /* PushNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
@@ -372,6 +375,7 @@
 			files = (
 				8C4C9C2B1ABCD6AA003F6BE7 /* Cocoaheads WatchKit App.app in Resources */,
 				8C4C9C271ABCD6AA003F6BE7 /* Images.xcassets in Resources */,
+				8C323F0A1AF7E18600F554CE /* PushNotificationPayload-alt.apns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

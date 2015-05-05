@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = self.window!.rootViewController as! UINavigationController
         let controller = navigationController.topViewController as! MasterViewController
         controller.managedObjectContext = self.managedObjectContext
+        
+        registerSettingsAndCategories()
         return true
     }
 
@@ -45,6 +47,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func registerSettingsAndCategories() {
+        
+        var categories = NSMutableSet()
+        
+        var firstAction = UIMutableUserNotificationAction()
+        firstAction.title = "First Action"
+        firstAction.identifier = "firstButtonAction"
+        firstAction.activationMode = UIUserNotificationActivationMode.Background
+        firstAction.authenticationRequired = false
+        
+        var secondAction = UIMutableUserNotificationAction()
+        secondAction.title = "Second Action"
+        secondAction.identifier = "secondButtonAction"
+        secondAction.activationMode = UIUserNotificationActivationMode.Foreground
+        secondAction.authenticationRequired = false
+        
+        var notifACategory = UIMutableUserNotificationCategory()
+        notifACategory.setActions([firstAction, secondAction],
+            forContext: UIUserNotificationActionContext.Default)
+        notifACategory.identifier = "notif-A"
+        
+        
+        categories.addObject(notifACategory)
+        
+        var settings = UIUserNotificationSettings(forTypes: (.Alert | .Badge | .Sound),
+            categories: categories as Set<NSObject>)
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
     }
 
     // MARK: - Core Data stack
@@ -95,6 +127,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
+    
+    
 
     // MARK: - Core Data Saving support
 
@@ -121,6 +155,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 case "glance" :  number = numberOfEvents()
                 case "addEvent":  number = addEvent()
                 case "deleteEvents":  deleteAll()
+                    number = 0
                 default :  number = addEvent()
                 }
                 let dico = ["eventsNumber":NSNumber(integer: number!)]
@@ -194,6 +229,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return numberOfEvents()
+    }
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
+        
+
+        
+        
+        
     }
 }
 

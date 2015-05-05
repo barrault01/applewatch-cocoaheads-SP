@@ -66,4 +66,8 @@ class InterfaceController: WKInterfaceController {
         self.presentControllerWithNames(array as [AnyObject], contexts: array2)
 
     }
+    
+    override func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject]) {
+        self.presentControllerWithName("notification", context: nil)
+    }
 }
