@@ -14,7 +14,7 @@ class InterfaceController: WKInterfaceController {
     
     @IBOutlet weak var table: WKInterfaceTable!
     
-    var rows = ["Animation","Open App","Menu","Modal"]
+    var rows = ["Animation","Open App","Menu","Modal","Text Input"]
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
@@ -49,9 +49,10 @@ class InterfaceController: WKInterfaceController {
         
         switch rowIndex {
         case 0 : self.pushControllerWithName("animation", context: nil)
-        case 1 :self.pushControllerWithName("openApp", context: nil)
-        case 2 :self.pushControllerWithName("Menu", context: nil)
-        default : self.presentModalViewPageView()
+        case 1 : self.pushControllerWithName("openApp", context: nil)
+        case 2 : self.pushControllerWithName("Menu", context: nil)
+        case 3 : self.presentModalViewPageView()
+        default : self.presentTextInput()
             
         }
     }
@@ -65,6 +66,17 @@ class InterfaceController: WKInterfaceController {
         
         self.presentControllerWithNames(array as [AnyObject], contexts: array2)
 
+    }
+    
+    func presentTextInput () {
+        
+        
+        self.presentTextInputControllerWithSuggestions(["YES","NO","MAYBE"], allowedInputMode: .AllowAnimatedEmoji) { (answer : [AnyObject]!) -> Void in
+            
+            println(answer)
+            
+        }
+        
     }
     
     override func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject]) {
