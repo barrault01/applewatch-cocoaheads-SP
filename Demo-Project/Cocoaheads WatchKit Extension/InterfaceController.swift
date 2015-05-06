@@ -71,7 +71,8 @@ class InterfaceController: WKInterfaceController {
     func presentTextInput () {
         
         
-        self.presentTextInputControllerWithSuggestions(["YES","NO","MAYBE"], allowedInputMode: .AllowAnimatedEmoji) { (answer : [AnyObject]!) -> Void in
+        self.presentTextInputControllerWithSuggestions(["YES","NO","MAYBE"],
+            allowedInputMode: .AllowAnimatedEmoji) { (answer : [AnyObject]!) -> Void in
             
             println(answer)
             
